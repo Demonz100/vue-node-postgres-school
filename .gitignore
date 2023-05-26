@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node-school-api/node_modules
 vue-school/node_modules
+postgres-data
 .DS_Store
 dist
 dist-ssr
