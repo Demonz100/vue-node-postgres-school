@@ -11,8 +11,9 @@ app.use(cors())
 app.get("/", (req, res) => {
   res.status(200).send({
     message: "Hello!!",
-    api: "/api/v1/student",
-    reminder: "Make sure to run /migrate to initialize database"
+    student_api: "/api/v1/student",
+    migrate: "/api/v1/student/migrate",
+    seed: "/api/v1/student/seed"
   });
 });
 

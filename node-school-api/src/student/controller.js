@@ -73,11 +73,15 @@ const updateStudent = (req, res) => {
     if (noStudentFound) {
       res.send("Student doesn't exist in the database.");
     } else {
-      pool.query(queries.updateStudent, [name, email, age, dob, id], (error, result) => {
-        if (error) throw error;
+      pool.query(
+        queries.updateStudent,
+        [name, email, age, dob, id],
+        (error, result) => {
+          if (error) throw error;
 
-        res.status(200).send("Student successfully updated.");
-      });
+          res.status(200).send("Student successfully updated.");
+        }
+      );
     }
   });
 };
@@ -87,7 +91,14 @@ const migrateTables = (req, res) => {
     if (error) throw error;
     res.status(200).json("Tables imgrated successfully.");
   });
-}
+};
+
+const seedTables = (req, res) => {
+  pool.query(queries.seedTables, (error, result) => {
+    if (error) throw error;
+    res.status(200).json("Tables seeded successfully.");
+  });
+};
 
 module.exports = {
   getAllStudent,
@@ -95,5 +106,6 @@ module.exports = {
   addStudent,
   deleteStudent,
   updateStudent,
-  migrateTables
+  migrateTables,
+  seedTables,
 };

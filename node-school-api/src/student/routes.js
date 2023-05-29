@@ -6,6 +6,8 @@ const router = Router();
 // Migrate Tables
 router.get("/migrate", controller.migrateTables);
 
+router.get("/seed", controller.seedTables);
+
 router.get("/", controller.getAllStudent);
 
 router.get("/:id", controller.getStudentById);

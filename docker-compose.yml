@@ -1,8 +1,9 @@
 version: '3'
 
 services:
-  frontend: 
-    build: ./vue-school
+  frontend:
+    build: ./
+    image: chansopheaktra/vue-school:latest
     ports: 
       - "8000:8000"
     container_name: frontend-docker
@@ -11,7 +12,8 @@ services:
       - backend
 
   backend:
-    build: ./node-school-api
+    build: ./
+    image: chansopheaktra/api-school:latest
     ports:
       - "9090:9090"
     container_name: backend-docker
@@ -30,4 +32,4 @@ services:
       POSTGRES_DB: school
       POSTGRES_PASSWORD: password
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data  
+      - ./postgres-data:/var/lib/postgresql/data
